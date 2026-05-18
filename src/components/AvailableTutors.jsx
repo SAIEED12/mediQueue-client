@@ -10,7 +10,7 @@ const AvailableTutors = async () => {
   return (
     <div className="mb-20">
       <h2
-        className={`${merriweather.className} text-3xl font-bold text-slate-900 mt-10 mb-10`}
+       className={`${merriweather.className} text-3xl font-black text-slate-900 dark:text-white my-10 tracking-tight text-center transition-colors duration-300`}
       >
         Available Tutors
       </h2>

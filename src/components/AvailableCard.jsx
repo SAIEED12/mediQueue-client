@@ -41,7 +41,7 @@ const AvailableCard = ({ tutor }) => {
                         {teachingMode}
                     </Chip>
                 </div>
-            </div>
+            </div> 
             <div className="p-5 flex flex-col grow space-y-3">
                 
                 <div className="space-y-1">

@@ -32,7 +32,7 @@ export default function RegisterPage() {
       }
 
       toast.success("Account created successfully!");
-      router.push("/");
+      router.push("/login");
     } catch (err) {
       console.error(err);
       toast.error("An unexpected error occurred.");
