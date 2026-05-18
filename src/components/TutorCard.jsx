@@ -91,7 +91,7 @@ const TutorCard = ({ tutor }) => {
                             variant="solid"
                             className="font-bold rounded-full px-6 transition-transform bg-gradient-to-r from-[#0070c9] to-[#00b4d8] text-white shadow-lg shadow-blue-500/30 hover:scale-[1.02] active:scale-[0.98]"
                         >
-                            Book Now
+                            Book Session
                         </Button>
                     </Link>
                 </div>

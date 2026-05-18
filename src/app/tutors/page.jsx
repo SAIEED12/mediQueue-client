@@ -1,19 +1,24 @@
 import TutorCard from "@/components/TutorCard";
-const fetchTutors = async() =>{
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tutors`)
-    const data = res.json()
-    return data || []
-}
+import { fetchTutors } from "@/lib/tutors/data";
+import { Merriweather } from "next/font/google";
+
+const merriweather = Merriweather({
+  subsets: ["latin"],
+});
+
 
 const TutorsPage = async() => {
     const tutors = await fetchTutors()
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-20 cursor-pointer">
-            
-
+        <div>
+            <h2 className={`${merriweather.className} text-3xl font-bold text-slate-900 mt-10`}>
+                All Tutors
+            </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 cursor-pointer">
             {
-                tutors.map((tutor) =>  <TutorCard key={tutor._id} tutor={tutor}></TutorCard>)
+                tutors.map((tutor) => <TutorCard key={tutor._id} tutor={tutor}></TutorCard>)
             }
+        </div>
         </div>
     );
 };
