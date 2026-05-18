@@ -34,7 +34,7 @@ const TutorCard = ({ tutor }) => {
 
                 <div className="absolute top-4 right-4 z-10">
                     <Chip
-                        className="font-bold shadow-lg shadow-blue-600/20 bg-gradient-to-r from-[#0070c9] to-[#00b4d8] text-white border-none"
+                        className="font-bold shadow-lg shadow-blue-600/20 bg-linear-to-r from-[#0070c9] to-[#00b4d8] text-white border-none"
                         variant="solid"
                     >
                         {teachingMode}
@@ -86,7 +86,7 @@ const TutorCard = ({ tutor }) => {
                         <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 -mt-1">per hour</span>
                     </div>
 
-                    <Link href={`/tutors/${_id || ''}`}>
+                    <Link href={`/tutors/${_id }`}>
                         <Button
                             variant="solid"
                             className="font-bold rounded-full px-6 transition-transform bg-gradient-to-r from-[#0070c9] to-[#00b4d8] text-white shadow-lg shadow-blue-500/30 hover:scale-[1.02] active:scale-[0.98]"
