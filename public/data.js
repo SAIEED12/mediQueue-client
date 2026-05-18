@@ -1,7 +1,7 @@
 [
   {
     "name": "Md. Rafiqul Islam",
-    "photo": "https://i.ibb.co.com/bjcgbMYD/photo-1507003211169-0a1dd7228f2d-auto-format-fit-crop-w-600-q-80.jpg",
+    "photo": "https://i.ibb.co.com/LXXqhsm0/photo-1531496730074-83b638c0a7ac-w-500-auto-format-fit-crop-q-60-ixlib-rb-4-1.jpg",
     "subject": "Mathematics",
     "availableDays": "Sun–Thu",
     "timeSlot": "4:00 PM – 8:00 PM",
@@ -18,7 +18,7 @@
   },
   {
     "name": "Sarah Ahmed",
-    "photo": "https://i.ibb.co.com/3mrypN8n/photo-1494790108377-be9c29b29330-auto-format-fit-crop-w-600-q-80.jpg",
+    "photo": "https://i.ibb.co.com/HfcpDdMt/premium-photo-1681248156475-be7454b5d54b-w-500-auto-format-fit-crop-q-60-ixlib-rb-4-1.jpg",
     "subject": "English",
     "availableDays": "Sat–Wed",
     "timeSlot": "5:00 PM – 9:00 PM",
@@ -86,7 +86,7 @@
   },
   {
     "name": "Fatema Begum",
-    "photo": "https://i.ibb.co.com/Y4NkzmgR/photo-1580489944761-15a19d654956-auto-format-fit-crop-w-600-q-80.jpg",
+    "photo": "https://i.ibb.co.com/BVLfT9mx/photo-1664913920468-e04086b46b61-w-500-auto-format-fit-crop-q-60-ixlib-rb-4-1.jpg",
     "subject": "ICT",
     "availableDays": "Mon–Thu",
     "timeSlot": "5:00 PM – 8:00 PM",
@@ -171,7 +171,7 @@
   },
   {
     "name": "Mizanur Rahman",
-    "photo": "https://i.ibb.co.com/bgLDYwgx/photo-1504257432389-52343af06ae3-auto-format-fit-crop-w-600-q-80.jpg",
+    "photo": "https://i.ibb.co.com/7dwL03Zr/premium-photo-1681248156518-1ad1586624a0-w-500-auto-format-fit-crop-q-60-ixlib-rb-4-1.jpg",
     "subject": "Chemistry",
     "availableDays": "Mon–Thu",
     "timeSlot": "3:00 PM – 7:00 PM",
