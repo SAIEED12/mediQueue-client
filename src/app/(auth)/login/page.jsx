@@ -1,11 +1,45 @@
 "use client";
-
 import { Button, Input } from "@heroui/react";
 import Link from "next/link";
 import { Mail, Lock, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { authClient } from "@/lib/auth-client";
+import { useState } from "react";
+import toast from "react-hot-toast";
 
 export default function LoginPage() {
+  
+  const [isLoading, setIsLoading] = useState(false);
+  
+   const handleLogin = async (e) => {
+      e.preventDefault();
+      setIsLoading(true);
+  
+      const formData = new FormData(e.currentTarget);
+      const loginData = Object.fromEntries(formData.entries());
+      
+  
+      try {
+        const { data, error } = await authClient.signIn.email({
+          ...loginData,
+           callbackURL:"/"
+        });
+
+
+        if (error) {
+          toast.error(error.message || "Login Failed!");
+          setIsLoading(false);
+          return;
+        }
+  
+        toast.success("Login successfull!");
+      } catch (err) {
+        console.error(err);
+        toast.error("An unexpected error occurred.");
+        setIsLoading(false);
+      }
+    };
+
   return (
     <div className="min-h-[80vh] flex flex-col bg-slate-50">
       <div className="flex items-center justify-center p-4 py-12">
@@ -25,7 +59,7 @@ export default function LoginPage() {
               </p>
             </div>
 
-            <form className="space-y-5">
+            <form className="space-y-5" onSubmit={handleLogin}>
               <div className="space-y-2">
                 <label
                   htmlFor="email"
@@ -73,6 +107,7 @@ export default function LoginPage() {
 
               <Button
                 type="submit"
+                isLoading={isLoading}
                 className="w-full h-14 text-lg font-black rounded-2xl shadow-xl bg-gradient-to-r from-[#0070c9] to-[#00b4d8] text-white shadow-blue-500/10 transition-transform duration-200 hover:scale-[1.01] active:scale-[0.99] group"
               >
                 Sign In{" "}

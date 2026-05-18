@@ -141,7 +141,7 @@ export default function RegisterPage() {
 
               <Button
                 type="submit"
-                isLoading={isLoading} // Prevents redundant submission spam
+                isLoading={isLoading} 
                 className="w-full h-14 text-lg font-black rounded-2xl shadow-xl bg-gradient-to-r from-[#0070c9] to-[#00b4d8] text-white shadow-blue-500/10 transition-transform duration-200 hover:scale-[1.01] active:scale-[0.99] group"
               >
                 Register{" "}
