@@ -1,5 +1,6 @@
 const dns = require("node:dns");
 dns.setServers(["8.8.8.8", "8.8.4.4"]);
+import BookingModalClient from '@/components/BookingModalClient';
 import { auth } from '@/lib/auth';
 import { Chip, Button } from '@heroui/react';
 import { Clock, Star, MapPin, Briefcase, GraduationCap, Calendar, AlertCircle, Users } from 'lucide-react';
@@ -71,7 +72,7 @@ export default async function TutorDetails({ params }) {
                         <span className="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
                             {subject}
                         </span>
-                        <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                        <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight dark:text-white">
                             {name}
                         </h1>
                         <p className="text-xl text-slate-500 font-medium leading-relaxed">
@@ -137,7 +138,7 @@ export default async function TutorDetails({ params }) {
 
                         {/* --- BUSINESS VALIDATION FLOW ROUTER ENGINE --- */}
                         
-                        {/* <div className="space-y-3">
+                        <div className="space-y-3">
                             {isFullyBooked ? (
                                 <div className="bg-red-50 border border-red-200 rounded-2xl p-4 flex gap-2.5 text-red-700 text-xs font-bold leading-normal">
                                     <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
@@ -158,7 +159,7 @@ export default async function TutorDetails({ params }) {
                         
                                 <BookingModalClient tutor={tutor} />
                             )}
-                        </div> */}
+                        </div>
 
                         <p className="text-center text-xs text-slate-400 font-bold">
                             Verified Academic Credentials • Cancel Anytime
