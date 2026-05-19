@@ -33,7 +33,7 @@ export function Navbar() {
     navLinks.push(
       { name: "Add Tutor", href: "/add-tutor" },
       { name: "My Tutors", href: "/my-tutors" },
-      { name: "My Booked Sessions", href: "/my-bookings" }
+      { name: "My Booked Sessions", href: "/my-booked-sessions" }
     );
   }
 

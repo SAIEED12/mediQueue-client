@@ -1,26 +1,37 @@
-
+const dns = require("node:dns");
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
+import { auth } from '@/lib/auth';
 import { Chip, Button } from '@heroui/react';
 import { Clock, Star, MapPin, Briefcase, GraduationCap, Calendar, AlertCircle, Users } from 'lucide-react';
+import { headers } from 'next/headers';
 import Image from 'next/image';
 // import BookingModalClient from './BookingModalClient';
 
-const fetchSingleTutor = async (id) => {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tutors/${id}`)
+const fetchSingleTutor = async (id, token) => {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tutors/${id}`,{
+            headers: {
+                authorization: `Bearer ${token}` || ''
+            }
+        });
         const data = await res.json()
         return data || {}
+
     
 
 };
 
 export default async function TutorDetails({ params }) {
     const {id} = await params;
-    const tutor = await fetchSingleTutor(id);
+    const { token } =  await auth.api.getToken({
+        headers: await headers()
+    })
+    console.log(token)
+    const tutor = await fetchSingleTutor(id, token);
     const { _id, name, photo, subject, availableDays, timeSlot, hourlyFee, institution, experience, location, teachingMode, rating, about} = tutor;
 
 
 
-    // --- SYSTEM VALIDATION BARRIERS ---
-    const currentDate = new Date(); // Internal clock system matches operational environment (2026)
+    const currentDate = new Date();
     const sessionStartDate = new Date(tutor.sessionStartDate);
     
     const isBookingBlockedYet = currentDate < sessionStartDate;
@@ -28,7 +39,7 @@ export default async function TutorDetails({ params }) {
 
     const featuredItems = [
         { icon: Briefcase, label: `${experience} Yrs Experience` },
-        { icon: Star, label: `${rating.toFixed(1)} Rating`, customClass: "text-amber-500 fill-current" },
+        { icon: Star, label: `${(rating || 0).toFixed(1)} Rating`, customClass: "text-amber-500 fill-current" },
         { icon: MapPin, label: location },
         { icon: GraduationCap, label: teachingMode },
     ];
@@ -37,7 +48,6 @@ export default async function TutorDetails({ params }) {
         <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
                 
-                {/* Left Frame: Core Media Header & Detail Parameters */}
                 <div className="lg:col-span-2 space-y-8">
                     <div className="relative group overflow-hidden rounded-[2.5rem] shadow-2xl aspect-video bg-slate-100">
                         <Image
@@ -57,8 +67,6 @@ export default async function TutorDetails({ params }) {
                             </Chip>
                         </div>
                     </div>
-
-                    {/* Subject, Name Headers */}
                     <div className="space-y-4">
                         <span className="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
                             {subject}
@@ -71,7 +79,6 @@ export default async function TutorDetails({ params }) {
                         </p>
                     </div>
 
-                    {/* Metadata Attribute Badges Grid Block */}
                     <div className="flex flex-wrap gap-4 pt-4">
                         {featuredItems.map((item, i) => (
                             <div
@@ -83,8 +90,6 @@ export default async function TutorDetails({ params }) {
                             </div>
                         ))}
                     </div>
-
-                    {/* Biography Description */}
                     <div className="space-y-3 pt-4">
                         <h3 className="text-lg font-bold text-slate-900">About the Tutor</h3>
                         <p className="text-slate-600 leading-relaxed text-base">
@@ -92,12 +97,8 @@ export default async function TutorDetails({ params }) {
                         </p>
                     </div>
                 </div>
-
-                {/* Right Frame: Floating Sticky Checkout Frame Column */}
                 <div className="lg:col-span-1">
                     <div className="sticky top-24 bg-white/70 backdrop-blur-md p-8 rounded-[2rem] border border-slate-200/60 shadow-2xl space-y-8">
-                        
-                        {/* Rate / Hour Box */}
                         <div className="space-y-2">
                             <p className="text-sm font-bold text-slate-500 uppercase tracking-widest">Hourly Fee</p>
                             <div className="flex items-baseline gap-1">
@@ -106,7 +107,6 @@ export default async function TutorDetails({ params }) {
                             </div>
                         </div>
 
-                        {/* Schedule & Target Threshold Constraints */}
                         <div className="space-y-4">
                             <div className="w-full h-px bg-slate-100" />
                             <ul className="space-y-4">
