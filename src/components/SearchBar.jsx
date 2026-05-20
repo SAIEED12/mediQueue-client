@@ -10,11 +10,9 @@ const SearchBar = () => {
   const [search, setSearch] = useState();
   const router = useRouter();
   const searchParams = useSearchParams();
-  // console.log(searchParams);
 
   const handleSearch = () => {
     const params = new URLSearchParams(searchParams.toString())
-    // ?filter= ?searchTerm=node
     if (search) {
       params.set("searchTerm", search)
     } else {
@@ -36,13 +34,13 @@ const SearchBar = () => {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         type="text"
-        placeholder="Search for courses (e.g. Next.js, Web Design...)"
+        placeholder="Search for tutors by name or subject"
         className="flex-1 h-14 px-4 outline-none bg-transparent text-slate-700 placeholder:text-slate-400"
       />
 
       <button
         onClick={handleSearch}
-        className="h-10 px-6 mr-2 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors"
+        className="h-10 px-6 mr-2 rounded-xl bg-linear-to-r from-[#0070c9] to-[#00b4d8] text-white font-semibold hover:scale-[1.02] active:scale-[0.98] transition-colors cursor-pointer"
 
       >
         Search

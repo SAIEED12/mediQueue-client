@@ -10,6 +10,9 @@ const BookingModalClient = ({ tutor }) => {
   const { data: session } = useSession();
   const [phone, setPhone] = useState("");
   const router = useRouter();
+
+
+
   const handleBooking = async (e) => {
     e.preventDefault();
     const { data: jwtData } = await authClient.token();
@@ -45,6 +48,9 @@ const BookingModalClient = ({ tutor }) => {
     }
     router.push("/my-booked-sessions");
   };
+
+
+
   return (
     <Modal>
       <Button variant="secondary">Book Now</Button>

@@ -32,7 +32,7 @@ export function Banner() {
   ];
 
   return (
-    <div className="relative w-full h-[550px] md:h-[620px] bg-slate-900 group">
+    <div className="relative w-full h-[calc(100vh-80px)] bg-slate-900 group">
       <Swiper
         modules={[Autoplay, EffectFade, Navigation, Pagination]}
         effect={"fade"}

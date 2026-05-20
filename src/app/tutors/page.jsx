@@ -12,7 +12,7 @@ const TutorsPage = async({searchParams}) => {
     const sParams = await searchParams
     const tutors = await fetchTutors(sParams?.searchTerm || "")
     return (
-        <div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <SearchBar></SearchBar>
             <h2 className={`${merriweather.className} text-3xl font-bold text-slate-900 mt-10`}>
                 All Tutors

@@ -89,7 +89,7 @@ const TutorCard = ({ tutor }) => {
                     <Link href={`/tutors/${_id }`}>
                         <Button
                             variant="solid"
-                            className="font-bold rounded-full px-6 transition-transform bg-gradient-to-r from-[#0070c9] to-[#00b4d8] text-white shadow-lg shadow-blue-500/30 hover:scale-[1.02] active:scale-[0.98]"
+                            className="font-bold rounded-full px-6 transition-transform bg-linear-to-r from-[#0070c9] to-[#00b4d8] text-white shadow-lg shadow-blue-500/30 hover:scale-[1.02] active:scale-[0.98]"
                         >
                             Book Session
                         </Button>

@@ -132,7 +132,7 @@ export function Navbar() {
                   />
                   <div className="text-left hidden lg:block">
                     <p className="text-sm font-bold max-w-[120px] truncate dark:text-white">
-                      Greetings, {session?.user?.name}
+                     {session?.user?.name}
                     </p>
                     <p className="text-[10px] text-slate-500 dark:text-slate-400">Student</p>
                   </div>

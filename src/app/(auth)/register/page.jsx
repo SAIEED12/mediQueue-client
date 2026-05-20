@@ -40,6 +40,12 @@ export default function RegisterPage() {
     }
   };
 
+    const handleGoogleRegister = async () => {
+      const data = await authClient.signIn.social({
+        provider: "google",
+      });
+    };
+
   return (
     <div className="min-h-[80vh] flex flex-col bg-slate-50">
       <div className="flex items-center justify-center p-4 py-12">
@@ -163,6 +169,7 @@ export default function RegisterPage() {
                 <Button
                   variant="bordered"
                   className="w-full h-12 font-bold rounded-2xl border-slate-200 hover:bg-slate-50 transition-colors gap-3"
+                  onClick={handleGoogleRegister}
                 >
                   <Image
                     width={20}

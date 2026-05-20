@@ -6,7 +6,6 @@ import { Chip, Button } from '@heroui/react';
 import { Clock, Star, MapPin, Briefcase, GraduationCap, Calendar, AlertCircle, Users } from 'lucide-react';
 import { headers } from 'next/headers';
 import Image from 'next/image';
-// import BookingModalClient from './BookingModalClient';
 
 const fetchSingleTutor = async (id, token) => {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tutors/${id}`,{

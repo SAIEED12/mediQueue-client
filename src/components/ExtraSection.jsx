@@ -74,7 +74,7 @@ const ExtraSection = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
                         <div className="lg:col-span-5 space-y-4 text-center lg:text-left">
                             <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 leading-tight">
-                                Join Bangladesh's Fastest Growing Learning Network
+                                Join Bangladesh&apos;s Fastest Growing Learning Network
                             </h2>
                             <p className="text-sm text-slate-500 font-medium leading-relaxed">
                                 We bridge the gap between brilliant minds and eager learners from premier institutions nationwide.
