@@ -8,37 +8,40 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 
 export default function LoginPage() {
-  
   const [isLoading, setIsLoading] = useState(false);
-  
-   const handleLogin = async (e) => {
-      e.preventDefault();
-      setIsLoading(true);
-  
-      const formData = new FormData(e.currentTarget);
-      const loginData = Object.fromEntries(formData.entries());
-      
-  
-      try {
-        const { data, error } = await authClient.signIn.email({
-          ...loginData,
-           callbackURL:"/"
-        });
 
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
 
-        if (error) {
-          toast.error(error.message || "Login Failed!");
-          setIsLoading(false);
-          return;
-        }
-  
-        toast.success("Login successfull!");
-      } catch (err) {
-        console.error(err);
-        toast.error("An unexpected error occurred.");
+    const formData = new FormData(e.currentTarget);
+    const loginData = Object.fromEntries(formData.entries());
+
+    try {
+      const { data, error } = await authClient.signIn.email({
+        ...loginData,
+        callbackURL: "/",
+      });
+
+      if (error) {
+        toast.error(error.message || "Login Failed!");
         setIsLoading(false);
+        return;
       }
-    };
+
+      toast.success("Login successfull!");
+    } catch (err) {
+      console.error(err);
+      toast.error("An unexpected error occurred.");
+      setIsLoading(false);
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+  };
 
   return (
     <div className="min-h-[80vh] flex flex-col bg-slate-50">
@@ -88,7 +91,7 @@ export default function LoginPage() {
                 <Input
                   id="password"
                   required
-                  placeholder="••••••••"
+                  placeholder="Enter your password"
                   type="password"
                   name="password"
                   startContent={<Lock className="w-5 h-5 text-slate-400" />}
@@ -127,6 +130,7 @@ export default function LoginPage() {
                 </div>
 
                 <Button
+                  onClick={handleGoogleLogin}
                   variant="bordered"
                   className="w-full h-12 font-bold rounded-2xl border-slate-200 hover:bg-slate-50 transition-colors gap-3"
                 >

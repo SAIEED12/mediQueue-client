@@ -72,7 +72,6 @@ const BookingModalClient = ({ tutor }) => {
                   onSubmit={handleBooking}
                   className="flex flex-col gap-4"
                 >
-                  {/* Student Name (Auto-filled & Locked) */}
                   <TextField className="w-full" name="name" type="text">
                     <Label>Student Name</Label>
                     <Input
@@ -81,8 +80,6 @@ const BookingModalClient = ({ tutor }) => {
                       placeholder="Loading active profile..."
                     />
                   </TextField>
-
-                  {/* Student Email (Auto-filled & Locked) */}
                   <TextField className="w-full" name="email" type="email">
                     <Label>Student Email</Label>
                     <Input
@@ -91,8 +88,7 @@ const BookingModalClient = ({ tutor }) => {
                       placeholder="Loading account email..."
                     />
                   </TextField>
-
-                  {/* Phone Number (Controlled User Entry Input) */}
+                  
                   <TextField className="w-full" name="phone" type="tel">
                     <Label>Phone Number</Label>
                     <Input
@@ -103,13 +99,11 @@ const BookingModalClient = ({ tutor }) => {
                     />
                   </TextField>
 
-                  {/* Tutor Name (Auto-filled & Locked) */}
                   <TextField className="w-full" name="tutorName" type="text">
                     <Label>Tutor Name</Label>
                     <Input value={tutor?.name || ""} disabled />
                   </TextField>
 
-                  {/* Tutor ID (Auto-filled & Locked) */}
                   <TextField className="w-full" name="tutorId" type="text">
                     <Label>Tutor ID</Label>
                     <Input value={tutor?._id || ""} disabled />

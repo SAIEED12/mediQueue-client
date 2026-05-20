@@ -65,12 +65,12 @@ export default function RegisterPage() {
                   htmlFor="name"
                   className="text-sm font-bold text-slate-700 ml-1"
                 >
-                  Full Name
+                  Name
                 </label>
                 <Input
                   id="name"
                   required
-                  placeholder="John Doe"
+                  placeholder="Enter your name"
                   type="text"
                   name="name"
                   startContent={<User className="w-5 h-5 text-slate-400" />}
@@ -126,7 +126,7 @@ export default function RegisterPage() {
                 <Input
                   id="password"
                   required
-                  placeholder="••••••••"
+                  placeholder="Enter your password"
                   type="password"
                   name="password"
                   startContent={<Lock className="w-5 h-5 text-slate-400" />}

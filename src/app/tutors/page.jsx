@@ -1,3 +1,4 @@
+import SearchBar from "@/components/SearchBar";
 import TutorCard from "@/components/TutorCard";
 import { fetchTutors } from "@/lib/tutors/data";
 import { Merriweather } from "next/font/google";
@@ -7,10 +8,12 @@ const merriweather = Merriweather({
 });
 
 
-const TutorsPage = async() => {
-    const tutors = await fetchTutors()
+const TutorsPage = async({searchParams}) => {
+    const sParams = await searchParams
+    const tutors = await fetchTutors(sParams?.searchTerm || "")
     return (
         <div>
+            <SearchBar></SearchBar>
             <h2 className={`${merriweather.className} text-3xl font-bold text-slate-900 mt-10`}>
                 All Tutors
             </h2>
