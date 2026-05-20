@@ -55,16 +55,16 @@ const TutorCard = ({ tutor }) => {
                     </p>
                 </div>
 
-                <div className="flex items-center justify-between text-xs font-bold border-y border-slate-100 py-2">
+                {/* <div className="flex items-center justify-between text-xs font-bold border-y border-slate-100 py-2">
                     <div className="flex items-center gap-1.5">
                         <Star className="w-4 h-4 text-amber-500 fill-current" />
-                        <span className="text-slate-900">{rating.toFixed(1)} Rating</span>
+                        <span className="text-slate-900">{(rating || 0).toFixed(1)} Rating</span>
                     </div>
                     <div className="flex items-center gap-1.5 text-slate-500">
                         <Briefcase className="w-4 h-4" />
-                        <span>{experience} Yrs Experience</span>
+                        <span>{(experience || 0).toFixed()} Yrs Experience</span>
                     </div>
-                </div>
+                </div> */}
                 <div className="flex items-center gap-4 text-xs text-slate-500 font-bold">
                     <span className="flex items-center gap-1 shrink-0">
                         <MapPin className="w-3.5 h-3.5 text-slate-400" /> {location}
@@ -72,11 +72,11 @@ const TutorCard = ({ tutor }) => {
                 </div>
                 <div className="space-y-1.5 text-xs font-medium text-slate-500 bg-slate-50 p-4 rounded-xl">
                     <div className="flex items-center gap-2">
-                        <span className="bg-white text-slate-700 px-2 py-0.5 rounded font-bold uppercase tracking-tight scale-90 origin-left">Days</span>
+                        <span className="bg-white text-slate-700 px-2 py-0.5 rounded font-bold uppercase tracking-tight scale-90 origin-left">Days:</span>
                         <span className="truncate">{availableDays}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                        <span className="bg-white text-slate-700 px-2 py-0.5 rounded font-bold uppercase tracking-tight scale-90 origin-left"><Clock className="w-2.5 h-2.5 inline mr-0.5 -mt-0.5" /> Time</span>
+                        <span className="bg-white text-slate-700 px-2 py-0.5 rounded font-bold uppercase tracking-tight scale-90 origin-left">Time:</span>
                         <span className="truncate">{timeSlot}</span>
                     </div>
                 </div>
