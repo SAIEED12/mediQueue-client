@@ -16,6 +16,10 @@ export default function AddTutorForm({ token, userEmail, userName }) {
 
     tutorData.hourlyFee = parseFloat(tutorData.hourlyFee);
     tutorData.totalSlot = parseInt(tutorData.totalSlot);
+    tutorData.experience = parseInt(tutorData.experience) || 0;
+
+    tutorData.creatorEmail = userEmail;
+    tutorData.creatorName = userName;
 
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tutors`, {
