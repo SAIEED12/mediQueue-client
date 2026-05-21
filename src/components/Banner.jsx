@@ -71,7 +71,7 @@ export function Banner() {
                   </p>
                   <div className="pt-4">
                     <Link href="/tutors">
-                      <Button className="bg-gradient-to-r from-[#0070c9] to-[#00b4d8] text-white font-bold text-base rounded-full px-8 py-6 shadow-xl shadow-blue-500/20 transition-transform duration-200 hover:scale-105 active:scale-95">
+                      <Button className="bg-linear-to-r from-[#0070c9] to-[#00b4d8] text-white font-bold text-base rounded-full px-8 py-6 shadow-xl shadow-blue-500/20 transition-transform duration-200 hover:scale-105 active:scale-95">
                         Explore Tutors
                       </Button>
                     </Link>
