@@ -27,7 +27,7 @@ const BookingModalClient = ({ tutor }) => {
 
       const updatedData = {
         userId: session?.user?.id,
-        studentName: studentName, // ✅ FIXED: Now correctly sends your custom manually typed input string state
+        studentName: studentName,
         studentEmail: session?.user?.email,
         phone: phone,
         tutorId: tutor?._id,
@@ -66,7 +66,7 @@ const BookingModalClient = ({ tutor }) => {
   const labelStyles =
     "text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1 block";
 
-  // ✅ FIXED: High-priority style overrides that completely fix invisible text on light screens across both modes
+ 
   const unifiedSlots = {
     input:
       "text-slate-900 dark:text-white font-medium text-sm bg-transparent !text-slate-900 dark:!text-white disabled:!text-slate-600 dark:disabled:!text-slate-400",

@@ -19,6 +19,9 @@ export const metadata = {
     template: "%s | MediQueue", 
   },
   description: "Book trusted academic and professional tutors instantly.",
+  icons: {
+    icon: "/logo.png", 
+  },
 };
 
 export default function RootLayout({ children }) {
