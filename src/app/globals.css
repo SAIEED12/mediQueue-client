@@ -1,7 +1,24 @@
 @import "tailwindcss";
 @import "@heroui/styles"; 
+
 :root {
-  /* Override any color variable */
   --accent: oklch(0.7 0.25 260);
   --success: oklch(0.65 0.15 155);
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  scroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
