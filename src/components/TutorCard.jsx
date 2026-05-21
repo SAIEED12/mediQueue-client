@@ -78,7 +78,7 @@ const TutorCard = ({ tutor }) => {
                 </div>
 
                 {/* BOTTOM HOURLY PRICING BOUNDARY & BUTTON ACTION */}
-                <div className="pt-4 mt-auto border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
+                <div className="pt-4 mt-auto border-t border-slate-200 dark:border-white/10 flex justify-between items-center">
                     <div className="flex flex-col">
                         <span className="text-2xl font-black text-slate-900 dark:text-white">${hourlyFee}</span>
                         <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 dark:text-slate-500 -mt-1">per hour</span>
