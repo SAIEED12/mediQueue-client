@@ -1,22 +1,21 @@
-export const dynamic = 'force-dynamic';
-import React from 'react';
-import { Merriweather } from "next/font/google";
-import { headers } from 'next/headers';
-import { auth } from '@/lib/auth';
-import BookedSessionsTable from '@/components/BookedSessionsTable';
+export const dynamic = "force-dynamic";
+import React from "react";
+import { headers } from "next/headers";
+import { auth } from "@/lib/auth";
+import BookedSessionsTable from "@/components/BookedSessionsTable";
 
-const merriweather = Merriweather({
-  subsets: ["latin"],
-  weight: ["300", "400", "700", "900"]
-});
+export const metadata = {
+  title: "My Booked Sessions",
+  description: "Booked Sessions",
+};
 
 const MyBookedSessionsPage = async () => {
   const { token } = await auth.api.getToken({
-    headers: await headers()
+    headers: await headers(),
   });
 
   const session = await auth.api.getSession({
-    headers: await headers()
+    headers: await headers(),
   });
 
   if (!session?.user) {
@@ -27,22 +26,32 @@ const MyBookedSessionsPage = async () => {
     );
   }
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/booked-sessions/${session?.user?.id}`, {
-    headers: {
-      Authorization: `Bearer ${token}`
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/booked-sessions/${session?.user?.id}`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      cache: "no-store",
     },
-    cache: "no-store" 
-  });
+  );
 
   const bookings = await res.json();
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-12 min-h-screen">
-      <h2 className={`${merriweather.className} text-3xl font-bold text-slate-900 mt-10 dark:text-white`}>
-        My Booked Sessions
-      </h2>
-      
-      {/* Inject the Client Component here */}
+      <div className="space-y-1.5 mt-10">
+        <h2 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+          My Booked{" "}
+          <span className="bg-gradient-to-r from-[#0070c9] to-[#00b4d8] bg-clip-text text-transparent">
+            Sessions
+          </span>
+        </h2>
+        <p className="text-slate-500 dark:text-slate-400 font-medium text-xs md:text-sm">
+          Track your upcoming schedules, virtual classroom details, and
+          appointment queues.
+        </p>
+      </div>
       <BookedSessionsTable initialBookings={bookings} token={token} />
     </div>
   );

@@ -44,9 +44,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div
-      className="min-h-[80vh] flex items-center justify-center p-4 py-12"
-    >
+    <div className="min-h-[80vh] flex items-center justify-center p-4 py-12">
       <div className="w-full max-w-md px-4">
         {/* CARD CONTAINER BACKDROP */}
         <div className="bg-white dark:bg-slate-900 p-10 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 shadow-2xl space-y-8 relative overflow-hidden transition-colors duration-300">
@@ -86,6 +84,7 @@ export default function LoginPage() {
                 />
               </div>
             </div>
+
             {/* PASSWORD FIELD */}
             <div className="flex flex-col gap-2">
               <label
@@ -106,6 +105,7 @@ export default function LoginPage() {
                 />
               </div>
             </div>
+
             {/* FORGOT PASSWORD LINK */}
             <div className="flex justify-end">
               <Link
@@ -115,11 +115,12 @@ export default function LoginPage() {
                 Forgot password?
               </Link>
             </div>
+
             {/* SUBMIT BUTTON */}
             <Button
               type="submit"
               isLoading={isLoading}
-              className="w-full h-14 text-lg font-black rounded-2xl shadow-xl bg-gradient-to-r from-[#0070c9] to-[#00b4d8] text-white shadow-blue-500/10 transition-transform duration-200 hover:scale-[1.01] active:scale-[0.99] group"
+              className="w-full h-14 text-lg font-black rounded-2xl shadow-xl bg-gradient-to-r from-[#0070c9] to-[#00b4d8] text-white shadow-blue-500/10 transition-transform duration-200 hover:scale-[1.01] active:scale-[0.99] group cursor-pointer"
             >
               Sign In{" "}
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -132,7 +133,7 @@ export default function LoginPage() {
               </div>
             </div>
 
-            {/* Google */}
+            {/* Google Social Login */}
             <button
               type="button"
               onClick={handleGoogleLogin}
@@ -141,7 +142,6 @@ export default function LoginPage() {
               <Image width={20} height={20} src="https://www.google.com/favicon.ico" alt="Google" />
               Sign up with Google
             </button>
-
           </form>
 
           {/* REGISTER REDIRECT FOOTER */}

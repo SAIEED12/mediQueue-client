@@ -1,45 +1,41 @@
-export const dynamic = 'force-dynamic'; // Forces Next.js to always fetch fresh entries instead of rendering static pages
+export const dynamic = "force-dynamic";
+import React from "react";
+import { headers } from "next/headers";
+import { auth } from "@/lib/auth";
+import MyTutorsTable from "@/components/MyTutorsTable";
 
-import React from 'react';
-import { Merriweather } from "next/font/google";
-import { headers } from 'next/headers';
-import { auth } from '@/lib/auth';
-import MyTutorsTable from '@/components/MyTutorsTable';
-
-const merriweather = Merriweather({
-  subsets: ["latin"],
-  weight: ["300", "400", "700", "900"]
-});
+export const metadata = {
+  title: "My Tutors ",
+  description: "Tutors Added By Me",
+};
 
 const MyTutorsPage = async () => {
-  // 1. Recover standard session context blocks and authorization headers
   const tokenData = await auth.api.getToken({
-    headers: await headers()
+    headers: await headers(),
   });
   const token = tokenData?.token;
 
   const session = await auth.api.getSession({
-    headers: await headers()
+    headers: await headers(),
   });
 
-  // 2. Private Route Shield: Reject access if the user is unauthenticated
   if (!session?.user) {
     return (
       <div className="max-w-6xl mx-auto px-4 py-20 text-center min-h-screen flex flex-col items-center justify-center">
         <h2 className="text-2xl font-bold text-red-500">Access Denied</h2>
-        <p className="text-slate-500 mt-2">Please log in to manage your listed tutor profiles.</p>
+        <p className="text-slate-500 mt-2">
+          Please log in to manage your listed tutor profiles.
+        </p>
       </div>
     );
   }
-
-  // 3. Fetch data specifically linked to the logged-in user's email address
   let tutorsData = [];
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/my-tutors`, {
       headers: {
-        Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
       },
-      cache: "no-store" // Bypasses data retention pools to keep real-time data sync accurate
+      cache: "no-store",
     });
 
     if (res.ok) {
@@ -51,16 +47,19 @@ const MyTutorsPage = async () => {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-12 min-h-screen">
-      <div className="mt-10">
-        <h2 className={`${merriweather.className} text-3xl font-bold text-slate-900 dark:text-white`}>
-          My Listed Tutors
+      <div className="mt-10 mb-20">
+        <h2 className="text-4xl font-black text-slate-900 dark:text-white tracking-tight">
+          My Listed{" "}
+          <span className="bg-gradient-to-r from-[#0070c9] to-[#00b4d8] bg-clip-text text-transparent">
+            Tutors
+          </span>
         </h2>
         <p className="text-slate-500 text-sm mt-1">
-          Review, modify, or permanently remove your active platform classifications.
+          Review, modify, or permanently remove your active platform
+          classifications.
         </p>
       </div>
-      
-      {/* 4. Pass properties down to the newly generated stateful data table */}
+
       <MyTutorsTable initialTutors={tutorsData} token={token} />
     </div>
   );

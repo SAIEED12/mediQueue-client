@@ -1,12 +1,12 @@
-// app/about/page.jsx
-import { BookOpen, Users, Star, Globe, Target, Heart } from "lucide-react"
+import { BookOpen, Globe, Target, Heart } from "lucide-react"
 import Link from "next/link"
 
 export const metadata = {
-  title: "About | TutorFlow",
-  description: "Learn more about TutorFlow and our mission",
-}
-
+  title: {
+    default: "About",
+  },
+  description: "About MediQueue",
+};
 export default function About() {
   const stats = [
     { number: "5,000+", label: "Students Enrolled" },

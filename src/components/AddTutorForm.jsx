@@ -54,9 +54,7 @@ export default function AddTutorForm({ token, userEmail, userName }) {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold text-slate-900 dark:text-white container mx-auto">
-        Add Tutor
-      </h2>
+
       <form
         onSubmit={handleSubmit}
         className="mt-8 bg-white dark:bg-slate-900 p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800"

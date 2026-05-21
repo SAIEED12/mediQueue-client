@@ -55,7 +55,7 @@ export default function SearchBar({ currentSearch, currentStartDate, currentEndD
       {/* Interactive Trigger Button Row */}
       <div className="flex items-center gap-2 w-full md:w-auto">
         <Button type="submit" color="primary" className="font-bold flex-1 md:flex-initial px-6">
-          Apply Filters
+          Search
         </Button>
         <Button type="button" variant="bordered" onClick={handleReset} className="font-bold flex-1 md:flex-initial">
           Reset

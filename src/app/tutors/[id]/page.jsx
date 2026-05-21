@@ -7,12 +7,14 @@ import { Clock, Star, MapPin, Briefcase, GraduationCap, Calendar, AlertCircle, U
 import { headers } from 'next/headers';
 import Image from 'next/image';
 
+
 const fetchSingleTutor = async (id, token) => {
     try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tutors/${id}`, {
             headers: {
-                authorization: `Bearer ${token}` || ''
-            }
+                authorization: token ? `Bearer ${token}` : ''
+            },
+            next: { revalidate: 3600 } 
         });
         if (!res.ok) return null;
         return await res.json();
@@ -22,8 +24,33 @@ const fetchSingleTutor = async (id, token) => {
     }
 };
 
+export async function generateMetadata({ params }) {
+    const { id } = await params;
+
+    try {
+        const tokenData = await auth.api.getToken({
+            headers: await headers()
+        });
+        const token = tokenData?.token;
+        const tutor = await fetchSingleTutor(id, token);
+        
+        if (!tutor || !tutor.name) throw new Error("Tutor profile unauthorized or empty");
+
+        return {
+            title: `${tutor.name} | Expert ${tutor.subject} Tutor`,
+            description: tutor.about || `Learn from ${tutor.name} on MediQueue.`,
+        };
+    } catch (error) {
+        return {
+            title: "Tutor Profile | MediQueue",
+            description: "View expert tutor details and available timeslots.",
+        };
+    }
+}
+
 export default async function TutorDetails({ params }) {
     const { id } = await params;
+    
     const tokenData = await auth.api.getToken({
         headers: await headers()
     });
@@ -31,7 +58,6 @@ export default async function TutorDetails({ params }) {
     
     const tutor = await fetchSingleTutor(id, token);
     
-    // Safety fallback layout if dynamic object returns empty or missing references
     if (!tutor || !tutor._id) {
         return <NotFound />;
     }
@@ -102,7 +128,7 @@ export default async function TutorDetails({ params }) {
                         ))}
                     </div>
 
-                    <div className="space-y-3  border-slate-100 bg-white p-4 rounded-2xl shadow-xl hover:shadow-md transition-all duration-300 dark:bg-slate-800/50 dark:border-slate-800/60 text-slate-900">
+                    <div className="space-y-3 border-slate-100 bg-white p-4 rounded-2xl shadow-xl hover:shadow-md transition-all duration-300 dark:bg-slate-800/50 dark:border-slate-800/60 text-slate-900">
                         <h3 className="text-lg font-bold text-slate-900 dark:text-white">About the Tutor</h3>
                         <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-base font-medium">
                             {about}
@@ -110,6 +136,7 @@ export default async function TutorDetails({ params }) {
                     </div>
                 </div>
 
+                {/* RIGHT COLUMN: STICKY BOOKING PANEL */}
                 <div className="lg:col-span-1">
                     <div className="sticky top-24 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md p-8 rounded-[2rem] border border-slate-200/60 dark:border-slate-800 shadow-2xl space-y-8">
                         

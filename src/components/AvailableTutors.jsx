@@ -1,16 +1,12 @@
 import { fetchAvailableTutors } from "@/lib/tutors/data";
 import AvailableCard from "./AvailableCard";
-import { Merriweather } from "next/font/google";
-const merriweather = Merriweather({
-  subsets: ["latin"],
-});
 
 const AvailableTutors = async () => {
   const tutors = await fetchAvailableTutors();
   return (
     <div className="mb-20">
       <h2
-       className={`${merriweather.className} text-3xl font-black text-slate-900 dark:text-white my-10 tracking-tight text-center transition-colors duration-300`}
+       className={"text-3xl font-black text-slate-900 dark:text-white my-10 tracking-tight text-center transition-colors duration-300"}
       >
         Available Tutors
       </h2>

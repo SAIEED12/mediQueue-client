@@ -40,7 +40,7 @@ export default function Loading() {
               <Skeleton className="h-16 w-full rounded-xl dark:bg-slate-800 mt-4" />
 
               {/* Footer: Price Block and Button Skeleton */}
-              <div className="pt-4 mt-auto border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
+              <div className="pt-4 mt-auto border-t border-slate-200/50 dark:border-white/10 flex justify-between items-center">
                 <div className="space-y-2">
                   <Skeleton className="h-6 w-16 rounded-lg dark:bg-slate-800" />
                   <Skeleton className="h-2 w-12 rounded-full dark:bg-slate-800" />

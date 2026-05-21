@@ -14,8 +14,11 @@ const merriweather = Merriweather({
 });
 
 export const metadata = {
-  title: "MediQueue",
-  description: "Find the perfect tutor for every subject",
+  title: {
+    default: "MediQueue | Smart Tutor Matching",
+    template: "%s | MediQueue", 
+  },
+  description: "Book trusted academic and professional tutors instantly.",
 };
 
 export default function RootLayout({ children }) {
