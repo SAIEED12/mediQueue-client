@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+MediQueue — Academic Tutor Booking Platform
+🌐 Live Site: https://mediqueue-omega.vercel.app
 
-## Getting Started
+About
+MediQueue is a full-stack academic tutor booking platform that connects students with verified, subject-specific tutors across Bangladesh. Students can browse tutor profiles, check availability, and book personalized learning sessions — online or in person — in just a few clicks.
 
-First, run the development server:
+Features
 
-```bash
+🔐 Secure Authentication — Email/password registration with real-time password validation (uppercase, lowercase, minimum 6 characters) and Google OAuth sign-in powered by Better Auth with JWT session management.
+🔍 Smart Tutor Search & Filter — Search tutors by name or subject using case-insensitive regex matching. Filter by session availability date range to find tutors that fit your schedule.
+📅 Intelligent Session Booking — Book sessions with automatic slot management. The system enforces booking rules: blocks bookings when slots are full or when the session start date hasn't arrived yet, and auto-decreases available slots after each successful booking.
+🧑‍🏫 Tutor Management Dashboard — Logged-in users can add their own tutor profiles with full details (subject, availability, fee, teaching mode), update them via a pre-filled modal, or delete them with a confirmation prompt — all without page reloads.
+📋 Booked Sessions Tracker — Students can view all their booked sessions in a dedicated dashboard and cancel bookings at any time. Cancelled bookings automatically restore the tutor's available slot count.
+🌙 Dark / Light Theme — Full dark mode support across all pages with smooth transitions, powered by next-themes. The theme preference persists across sessions.
+📱 Fully Responsive Design — Optimized for mobile, tablet, and desktop with a sticky navbar, mobile hamburger drawer, and adaptive card layouts built with Tailwind CSS and Shadcn/UI.
+
+
+Tech Stack
+Frontend
+
+Next.js 14+ (App Router)
+Tailwind CSS + Shadcn/UI + HeroUI
+Better Auth (client)
+Framer Motion
+Swiper.js (hero carousel)
+React Hot Toast
+
+Backend
+
+Node.js + Express.js
+MongoDB (native driver)
+Better Auth (server)
+JWT via jose-cjs
+
+Hosting
+
+Client: Vercel
+Server: Render
+
+
+Getting Started
+Prerequisites
+
+Node.js 18+
+MongoDB Atlas account
+Google OAuth credentials (for social login)
+
+Installation
+bash# Clone the repository
+git clone https://github.com/your-username/mediqueue-client.git
+cd mediqueue-client
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env.local
+# Fill in your MONGODB_URI, BETTER_AUTH_SECRET, GOOGLE_CLIENT_ID, etc.
+
+# Run the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open http://localhost:3000 in your browser.
+Environment Variables
+envNEXT_PUBLIC_API_URL=http://localhost:8000
+BETTER_AUTH_SECRET=your_secret_here
+BETTER_AUTH_URL=http://localhost:3000
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
