@@ -1,6 +1,6 @@
 MediQueue — Academic Tutor Booking Platform
 
-🌐 Live Site: MediQueue Live Demo
+🌐 Live Site: https://mediqueue-omega.vercel.app
 
 About
 
