@@ -1,4 +1,17 @@
 MediQueue — Academic Tutor Booking Platform
+<img width="1902" height="990" alt="Home" src="https://github.com/user-attachments/assets/ea2ca8e4-b01b-4daf-9762-0c9d104bcef2" />
+<img width="1896" height="956" alt="Tutors" src="https://github.com/user-attachments/assets/c271d8ea-ab3e-49de-8318-bfbd97055589" />
+<img width="1913" height="896" alt="Available" src="https://github.com/user-attachments/assets/e751e408-959f-44ac-8e43-44a36d4b9b54" />
+<img width="1917" height="955" alt="Booking" src="https://github.com/user-attachments/assets/4592ac63-f45d-4532-8858-3f14a249f0d9" />
+<img width="1901" height="953" alt="BookedSession" src="https://github.com/user-attachments/assets/cc611148-680e-4b3e-8f5c-642de6e06307" />
+<img width="1895" height="947" alt="AddTutor" src="https://github.com/user-attachments/assets/d8bad3c4-2012-4511-97ee-942c4ae4fec4" />
+<img width="1903" height="959" alt="My Tutors" src="https://github.com/user-attachments/assets/481d2cec-5344-4e3a-943e-981b2a4d5eaa" />
+
+
+
+
+
+
 
 🌐 Live Site: https://mediqueue-omega.vercel.app
 
