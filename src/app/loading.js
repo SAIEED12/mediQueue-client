@@ -13,7 +13,7 @@ export default function Loading() {
         <Skeleton className="h-4 w-96 rounded-lg dark:bg-slate-800" />
       </div>
 
-      {/* Responsive Grid matching your Tutor List layout */}
+      {/* Responsive Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
         {skeletonCards.map((_, index) => (

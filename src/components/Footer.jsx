@@ -31,9 +31,9 @@ const Footer = () => {
             <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-4">Learning Services</h3>
             <ul className="space-y-3 text-sm font-medium text-slate-500 dark:text-slate-400">
               <li><Link href="/tutors" className="hover:text-[#0070c9] dark:hover:text-[#00b4d8] transition-colors">Find Tutors</Link></li>
-              <li><Link href="/services/online-tutoring" className="hover:text-[#0070c9] dark:hover:text-[#00b4d8] transition-colors">Online Classes</Link></li>
-              <li><Link href="/services/academic-coaching" className="hover:text-[#0070c9] dark:hover:text-[#00b4d8] transition-colors">Academic Coaching</Link></li>
-              <li><Link href="/become-tutor" className="hover:text-[#0070c9] dark:hover:text-[#00b4d8] transition-colors">Become a Tutor</Link></li>
+              <li><Link href="/about" className="hover:text-[#0070c9] dark:hover:text-[#00b4d8] transition-colors">About Us</Link></li>
+              <li><Link href="/contact" className="hover:text-[#0070c9] dark:hover:text-[#00b4d8] transition-colors">Contact</Link></li>
+              <li><Link href="/add-tutor" className="hover:text-[#0070c9] dark:hover:text-[#00b4d8] transition-colors">Become a Tutor</Link></li>
             </ul>
           </div>
 

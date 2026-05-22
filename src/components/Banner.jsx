@@ -43,10 +43,6 @@ export function Banner() {
           delay: 5000,
           disableOnInteraction: false,
         }}
-        // pagination={{
-        //   clickable: true,
-        //   el: ".custom-swiper-pagination",
-        // }}
         navigation={{
           nextEl: ".custom-swiper-next",
           prevEl: ".custom-swiper-prev",

@@ -143,5 +143,4 @@ function ContactForm() {
     );
 }
 
-// ✅ Explicit default export ensures target components receive a valid element function
 export default ContactForm;

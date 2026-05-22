@@ -7,7 +7,6 @@ import toast from "react-hot-toast";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 
-// ✅ Outside the component
 const ValidationItem = ({ passed, label }) => (
   <div className="flex items-center gap-2">
     {passed ? (
